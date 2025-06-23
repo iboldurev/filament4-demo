@@ -71,6 +71,7 @@ class UsersTable
 
                             DatePicker::make('until')
                                 ->native(false)
+                                ->default(now())
                                 ->label('Created Until')
                                 ->placeholder('Until'),
                         ])
