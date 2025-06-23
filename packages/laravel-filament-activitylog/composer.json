@@ -1,0 +1,64 @@
+{
+    "name": "ralphjsmit/laravel-filament-activitylog",
+    "description": "A package to integrate Spatie Activitylog with Filament.",
+    "keywords": [
+        "Ralph J. Smit",
+        "laravel",
+        "laravel-filament-activitylog"
+    ],
+    "homepage": "https://github.com/ralphjsmit/laravel-filament-activitylog",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ralph J. Smit",
+            "email": "rjs@ralphjsmit.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/forms": "^3.1",
+        "filament/support": "^3.1",
+        "illuminate/contracts": "^10.0|^11.0|^12.0",
+        "ralphjsmit/packages": "^1.4",
+        "spatie/laravel-activitylog": "^4.7",
+        "spatie/laravel-package-tools": "^1.14.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.8|^8.0",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "RalphJSmit\\Filament\\Activitylog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {}
+    },
+    "scripts": {
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "ralphjsmit/packages": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+              "RalphJSmit\\Filament\\Activitylog\\ActivitylogServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.ralphjsmit.com"
+        }
+    ]
+}

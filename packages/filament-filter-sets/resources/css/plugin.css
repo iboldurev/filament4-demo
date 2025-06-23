@@ -1,0 +1,65 @@
+.advanced-tables-icon-select .choices > .choices__list {
+    @apply px-2;
+}
+
+.advanced-tables-icon-select .choices > .choices__inner {
+    @apply h-10 py-0 flex items-center justify-center;
+}
+
+.advanced-tables-icon-select .choices > .choices__list .choices__list {
+    @apply py-2 gap-2;
+}
+
+.advanced-tables-icon-select .choices > .choices__list .choices__list .choices__item {
+    @apply border-[1px] rounded-lg shadow-sm dark:border-gray-600;
+}
+
+.advanced-tables-icon-select .choices > .choices__list .choices__list .choices__item.has-no-choices,
+.advanced-tables-icon-select .choices > .choices__list .choices__list .choices__item.has-no-results,
+.advanced-tables-icon-select .choices > .choices__list .choices__list .choices__item.choices__item--disabled {
+    @apply col-span-full border-none shadow-none;
+}
+
+.advanced-tables-icon-select .choices > .choices__list .choices__list {
+    @apply grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5;
+}
+
+.advanced-tables-filter-block div:first-of-type {
+    @apply items-end;
+}
+
+.advanced-tables-table-loading-overlay .fi-ta-col-wrp {
+    @apply relative;
+}
+
+.advanced-tables-table-loading-overlay .fi-ta-col-wrp > * {
+    @apply opacity-0;
+}
+
+.advanced-tables-table-loading-overlay .fi-ta-col-wrp::after {
+    @apply content-[''] opacity-30 absolute mx-3 top-1/2 -translate-y-1/2 h-3 bg-gray-400 rounded-full animate-pulse;
+}
+
+.fi-ta-row:nth-child(6n+1) .fi-ta-col-wrp::after {
+    @apply w-4/5;
+}
+
+.fi-ta-row:nth-child(6n+2) .fi-ta-col-wrp::after {
+    @apply w-2/3;
+}
+
+.fi-ta-row:nth-child(6n+3) .fi-ta-col-wrp::after {
+    @apply w-5/6;
+}
+
+.fi-ta-row:nth-child(6n+4) .fi-ta-col-wrp::after {
+    @apply w-1/2;
+}
+
+.fi-ta-row:nth-child(6n+5) .fi-ta-col-wrp::after {
+    @apply w-4/5;
+}
+
+.fi-ta-row:nth-child(6n) .fi-ta-col-wrp::after {
+    @apply w-3/4;
+}

@@ -1,0 +1,69 @@
+{
+    "name": "ralphjsmit/laravel-filament-auto-translator",
+    "description": "A Filament package that will generate every single translation key in your Filament application.",
+    "keywords": [
+        "Ralph J. Smit",
+        "laravel",
+        "laravel-filament-auto-translator"
+    ],
+    "homepage": "https://github.com/ralphjsmit/laravel-filament-auto-translator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ralph J. Smit",
+            "email": "rjs@ralphjsmit.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/contracts": "^10.0|^11.0|^12.0",
+        "ralphjsmit/packages": "^1.4",
+        "spatie/laravel-package-tools": "^1.16"
+    },
+    "require-dev": {
+        "filament/filament": "^3.2.135",
+        "laravel/framework": "^11.14",
+        "laravel/pint": "^1.14",
+        "nunomaduro/collision": "^7.10|^8.1",
+        "orchestra/testbench": "^8.22|^9.0|^10.0",
+        "pestphp/pest": "^2.34|^3.0",
+        "pestphp/pest-plugin-arch": "^2.7|^3.0",
+        "pestphp/pest-plugin-laravel": "^2.3|^3.0",
+        "pestphp/pest-plugin-livewire": "^2.1|^3.0",
+        "spatie/laravel-ray": "^1.39"
+    },
+    "autoload": {
+        "psr-4": {
+            "RalphJSmit\\Filament\\AutoTranslator\\": "src/",
+            "RalphJSmit\\Filament\\AutoTranslator\\Database\\Factories\\": "database/factories/",
+            "RalphJSmit\\Filament\\AutoTranslator\\Tests\\": "tests/",
+            "RalphJSmit\\Filament\\AutoTranslator\\Tests\\Database\\Factories\\": "tests/database/factories/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest --order-by random --stop-on-failure --stop-on-error --fail-on-risky",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "ralphjsmit/packages": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RalphJSmit\\Filament\\AutoTranslator\\FilamentAutoTranslatorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.ralphjsmit.com"
+        }
+    ]
+}
