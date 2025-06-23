@@ -80,22 +80,6 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./packages/filament-filter-sets"
-        },
-        {
-            "type": "path",
-            "url": "./packages/laravel-filament-activitylog"
-        },
-        {
-            "type": "path",
-            "url": "./packages/laravel-filament-auto-translator"
-        },
-        {
-            "type": "composer",
-            "url": "https://satis.ralphjsmit.com"
-        },
-        {
-            "type": "path",
             "url": "../filament/packages/*"
         }
     ],
