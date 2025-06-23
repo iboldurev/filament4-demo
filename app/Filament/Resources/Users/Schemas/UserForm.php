@@ -2,7 +2,9 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
+use App\Enums;
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -12,6 +14,12 @@ class UserForm
     {
         return $schema
             ->components([
+                Select::make('status')
+                    ->label('Status')
+                    ->native(false)
+                    ->options(Enums\UserStatus::class)
+                    ->required(),
+
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('email')
