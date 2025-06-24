@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Users\Tables;
 
 use App\Enums;
+use App\Models\User;
 use Filament\Actions;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\CreateAction;
@@ -11,6 +12,7 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Schemas;
+use Filament\Schemas\Schema;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\Width;
 use Filament\Tables\Columns\TextColumn;
@@ -92,9 +94,33 @@ class UsersTable
             ])
             ->recordActions([
                 ViewAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->extraModalFooterActions([
+                        Actions\EditAction::make(),
+                    ]),
+
                 EditAction::make()
-                    ->slideOver(),
+                    ->slideOver()
+                    ->mountUsing(function (Schema $form, User $record, array $data): void {
+                        $data['contacts'] = $record->contacts->map(function ($contact) {
+                            return [
+                                'type' => $contact->type,
+                                'value' => $contact->value,
+                            ];
+                        })->toArray();
+
+                        $form->fill($data);
+                    })
+                    ->using(function (User $record, array $data): User {
+                        $record->contacts()->delete();
+                        $record->contacts()->createMany($data['contacts'] ?? []);
+
+                        unset($data['contacts']);
+
+                        $record->update($data);
+
+                        return $record;
+                    }),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
@@ -104,7 +130,17 @@ class UsersTable
             ->headerActions([
                 CreateAction::make()
                     ->slideOver()
-                    ->createAnother(false),
+                    ->createAnother(false)
+                    ->using(function (array $data): User {
+                        $contacts = $data['contacts'] ?? [];
+
+                        unset($data['contacts']);
+
+                        $record = User::create($data);
+                        $record->contacts()->createMany($contacts);
+
+                        return $record;
+                    }),
             ]);
     }
 }

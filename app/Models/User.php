@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,6 +19,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'status',
         'name',
         'email',
         'password',
@@ -41,8 +43,14 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
+            'status' => Enums\UserStatus::class,
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function contacts()
+    {
+        return $this->hasMany(UserContact::class);
     }
 }
